@@ -5,6 +5,8 @@
 /.pnp
 .pnp.js
 
+git rm --cached
+
 # testing
 /coverage
 
