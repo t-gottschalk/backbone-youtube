@@ -9,12 +9,17 @@ const VideosCollection = Backbone.Collection.extend({
   },
 
   // Initial API Call
-  searchVideos: function (search) {
+  searchVideos: function(search) {
     this.url = baseUrl + search + key;
-    this.fetch({reset: true});
+    this.fetch({
+      reset: true,
+      error: function(err) {
+        throw err;
+      }
+    });
   },
 
-  parse: function (resp) {
+  parse: function(resp) {
     return resp.items.map(item => {
       return {
         id: item.id.videoId,

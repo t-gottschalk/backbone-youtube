@@ -8,7 +8,7 @@ const AppModel = Backbone.Model.extend({
     }
   },
 
-  setCurrentVideo: function (videoId) {
+  setCurrentVideo: function(videoId) {
     var currentVideo;
     var allVideos = this.get('videos');
     if(videoId === '0'){
@@ -24,7 +24,7 @@ const AppModel = Backbone.Model.extend({
     this.set('currentVideo', currentVideo);
   },
 
-  updateDefaultSearch: function (search) {
+  updateDefaultSearch: function(search) {
     this.set('defaultSearch', search);
   },
 

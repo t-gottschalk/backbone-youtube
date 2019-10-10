@@ -73,7 +73,7 @@ const AppView = Backbone.View.extend({
   // Loop through videos and render side view
   renderVideoQueue: function () {
     this.$('.video-queue').empty();
-    this.model.get('videos').each(function (video) {
+    this.model.get('videos').each(function(video) {
 	    if (!video.get('currentVideo')) {
 	      this.renderVideoCard(video);
 	    }

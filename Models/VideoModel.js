@@ -1,7 +1,7 @@
 const VideoModel = Backbone.Model.extend({
   defaults: () => {
   	return {
-	  	id: 0,
+	  	id: '',
 	    title: '',
 	    description: '',
 	    thumbnail: '',
