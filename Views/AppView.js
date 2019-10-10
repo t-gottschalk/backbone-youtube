@@ -21,8 +21,9 @@ const AppView = Backbone.View.extend({
     this.listenTo(this.model, 'change:defaultSearch', this.updateSearch);
   },
 
-  onKeyPress: function(e) {
-    if (e.which === 13) {
+  // onKeyPress Event Handler
+  onKeyPress: function(event) {
+    if (event.which === 13) {
       if ($('.search-input').val().length === 0) {
         alert('Please enter search criteria');
       } else {
@@ -36,17 +37,17 @@ const AppView = Backbone.View.extend({
     this.model.setCurrentVideo('0');
   },
 
-  updateCurrentVideo: function(e){
-    //check for current video assignment
-    this.model.setCurrentVideo($(e.currentTarget).data().id);
+  updateCurrentVideo: function(event){
+    this.model.setCurrentVideo($(event.currentTarget).data().id);
   },
 
+  // onClick Event Handler
   updateQuery: function(){
     var newQueryString = this.$searchInput.val();
     if (newQueryString !== '' && newQueryString !== this.model.get('defaultSearch')){
       this.model.updateDefaultSearch(newQueryString);
     } else {
-      alert('404 Error!');
+      alert('Please enter search criteria');
     }
   },
 
@@ -69,11 +70,12 @@ const AppView = Backbone.View.extend({
     this.$('.video-queue').append(waitingVideoView.render().el);
   },
 
+  // Loop through videos and render side view
   renderVideoQueue: function () {
     this.$('.video-queue').empty();
-    this.model.get('videos').each(function (m) {
-	    if (!m.get('currentVideo')) {
-	      this.renderVideoCard(m);
+    this.model.get('videos').each(function (video) {
+	    if (!video.get('currentVideo')) {
+	      this.renderVideoCard(video);
 	    }
   	}, this);
   },

@@ -1,12 +1,14 @@
 const VideosCollection = Backbone.Collection.extend({
   model: VideoModel,
 
+  // Initialized with Variable access
   initialize: () => {
-  	key = '&key=AIzaSyALT3IQvbkQs5TifbVM8LfyjCKQIgpA9Ns'; // Libby
-  	// key = '&key=AIzaSyB3YECTEhQkCY9CyYu43DQGgjP9RL2UIHQ'; // Tony
+  	// key = '&key=AIzaSyALT3IQvbkQs5TifbVM8LfyjCKQIgpA9Ns'; // Libby
+  	key = '&key=AIzaSyB3YECTEhQkCY9CyYu43DQGgjP9RL2UIHQ'; // Tony
   	baseUrl = 'https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&q=';
   },
 
+  // Initial API Call
   searchVideos: function (search) {
     this.url = baseUrl + search + key;
     this.fetch({reset: true});
