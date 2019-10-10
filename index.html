@@ -1,12 +1,76 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<title>backbone-youtube</title>
+	<meta charset="UTF-8">
+	<meta content="IE=edge" http-equiv="X-UA-Compatible">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <meta content="description" name="description">
+  <meta name="google" content="notranslate" />
+  <meta name="msapplication-tap-highlight" content="no">
+	<title>Eval Backbone.js YouTube search</title>
+	<link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.css" />
 	<link rel="stylesheet" type="text/css" href="./src/styles.css">
 </head>
 <body>
 
-	<div class="container">Tony's YouTube Player</div>
+	<header class="container">
+    <nav class="row">
+      <div class="input-group">
+        <input 
+        	type="text" 
+        	class="form-control search-input" 
+        	placeholder="Search"
+        >
+        <button 
+        	class="btn btn-primary" 
+        	type="button" 
+        	id="search-button">
+        	Search Videos
+      	</button>
+      </div>
+      <div>
+      <div class="row">
+        <div class="col-lg-6 current-video"></div>
+        <div class="col-md-4 offset-md-2 video-queue"></div>
+      </div>
+    </nav>
+  </header>
+
+  <script id="current-video-view" type="text/html">
+    <main class="container">
+			<iframe 
+				width="640" 
+				height="480" 
+				src="<%= embed %>" 
+				frameborder="1"
+      	allow="accelerometer; autoplay; encrypted-media; gyroscope" 
+      	allowfullscreen
+      >
+    	</iframe>
+  		<%= title %>
+    	<%= description %>
+    </main>
+  </script>
+
+  <script id="waiting-video-view" type="text/html">
+  	<main class="container">
+  		<section class="card-queue" data-id="<%= id %>">
+      	<img src="<%= thumbnail %>" alt="YouTube Videos">
+    	</section>
+    	<%= title %>
+  	</main>
+  </script>
+
+	<script src="node_modules/jquery/dist/jquery.min.js"></script>
+  <script src="node_modules/underscore/underscore-min.js"></script>
+  <script src="node_modules/backbone/backbone-min.js"></script>
+  
+  <script src="Models/AppModel.js"></script>
+  <script src="Models/VideoModel.js"></script>
+  <script src="Collections/VideosCollection.js"></script>
+  <script src="Views/AppView.js"></script>
+  <script src="views/CurrentVideoView.js"></script>
+  <script src="Views/WaitingVideoView.js"></script>
 
 	<script type="text/javascript" src="./app.js"></script>
 </body>
