@@ -19,8 +19,24 @@ body {
 
 button, img {
   cursor: pointer;
+  border-color: black;
 }
 
 .input-group {
+	margin-top: 5%;
 	margin-bottom: 2%;
+}
+
+.search-input {
+	border-radius: 5px;
+	outline: none;
+}
+
+.btn-primary {
+	background-color: hsl(200, 100%, 50%);
+	border: 1px solid hsl(200, 100%, 30%);
+	border-radius: 5px;
+	padding: 5px 10px;
+	color: white;
+	outline: none;
 }

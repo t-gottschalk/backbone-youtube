@@ -5,7 +5,7 @@ const VideosCollection = Backbone.Collection.extend({
   initialize: () => {
   	// key = '&key=AIzaSyALT3IQvbkQs5TifbVM8LfyjCKQIgpA9Ns'; // Libby
   	key = '&key=AIzaSyB3YECTEhQkCY9CyYu43DQGgjP9RL2UIHQ'; // Tony
-  	baseUrl = 'https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&q=';
+  	baseUrl = 'https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=6&q=';
   },
 
   // Initial API Call
